@@ -1,8 +1,5 @@
 namespace SunamoEntity._sunamo;
 
-/// <summary>
-/// Provides lists of special characters for classification and filtering.
-/// </summary>
 internal class SpecialCharsService
 {
     internal readonly List<char> SpecialChars = new(new[]
@@ -13,9 +10,6 @@ internal class SpecialCharsService
         comma, period, colon, apostrophe, rightParenthesis, solidus, lessThan, greaterThan, leftCurlyBracket, rightCurlyBracket, leftSquareBracket, verticalBar, semicolon, plus, rightSquareBracket,
         enDash, forwardSlash
     });
-    /// <summary>
-    /// Used in enigma.
-    /// </summary>
 #pragma warning disable CS0649
     internal readonly List<char>? SpecialCharsAll;
 #pragma warning restore CS0649
@@ -40,9 +34,6 @@ internal class SpecialCharsService
     private const char solidus = '/';
     private const char underscore = '_';
     private const char lessThan = '<';
-    /// <summary>
-    /// Skipped in SpecialCharsExtended - already used as equals.
-    /// </summary>
     private const char equalsSign = '=';
     private const char greaterThan = '>';
     private const char ampersand = '&';
@@ -70,8 +61,5 @@ internal class SpecialCharsService
     private const char leftBracket = '(';
     private const char rightBracket = ')';
     private const char forwardSlash = '/';
-    /// <summary>
-    /// Backspace character.
-    /// </summary>
     private const char backspace = '\b';
 }

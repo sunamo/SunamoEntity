@@ -1,8 +1,5 @@
 namespace SunamoEntity._sunamo.SunamoThisApp;
 
-/// <summary>
-/// Provides shared application-level settings and status management.
-/// </summary>
 internal class ThisApp
 {
     internal static string EventLogName { get; set; } = null!;

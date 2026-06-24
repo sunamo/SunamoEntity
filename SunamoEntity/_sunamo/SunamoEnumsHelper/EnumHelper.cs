@@ -1,26 +1,10 @@
 namespace SunamoEntity._sunamo.SunamoEnumsHelper;
 
-/// <summary>
-/// Helper methods for working with enum values.
-/// </summary>
 internal class EnumHelper
 {
-    /// <summary>
-    /// Gets all enum values except Nope/None.
-    /// </summary>
-    /// <typeparam name="T">The enum type.</typeparam>
     internal static List<T> GetValues<T>()
-       where T : struct
-    {
-        return GetValues<T>(false, true);
-    }
+       where T : struct => GetValues<T>(false, true);
 
-    /// <summary>
-    /// Gets enum values with options to include or exclude Nope and Shared values.
-    /// </summary>
-    /// <typeparam name="T">The enum type.</typeparam>
-    /// <param name="isIncludingNope">Whether to include the Nope value.</param>
-    /// <param name="isIncludingShared">Whether to include the Shared value.</param>
     internal static List<T> GetValues<T>(bool isIncludingNope, bool isIncludingShared)
         where T : struct
     {

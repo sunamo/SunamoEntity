@@ -1,8 +1,5 @@
 namespace SunamoEntity.Entity;
 
-/// <summary>
-/// Analyzes a string and provides character complexity information.
-/// </summary>
 public class ComplexInfoString
 {
     private int quantityNumbers = 0;
@@ -11,10 +8,6 @@ public class ComplexInfoString
     private int quantitySpecialChars = 0;
     private Dictionary<char, int> characterCounts = new Dictionary<char, int>();
 
-    /// <summary>
-    /// Gets the count of a specific character in the analyzed string.
-    /// </summary>
-    /// <param name="character">The character to look up.</param>
     public int this[char character]
     {
         get
@@ -27,54 +20,14 @@ public class ComplexInfoString
         }
     }
 
-    /// <summary>
-    /// Gets the quantity of numeric characters found.
-    /// </summary>
-    public int QuantityNumbers
-    {
-        get
-        {
-            return quantityNumbers;
-        }
-    }
+    public int QuantityNumbers => quantityNumbers;
 
-    /// <summary>
-    /// Gets the quantity of lowercase characters found.
-    /// </summary>
-    public int QuantityLowerChars
-    {
-        get
-        {
-            return quantityLowerChars;
-        }
-    }
+    public int QuantityLowerChars => quantityLowerChars;
 
-    /// <summary>
-    /// Gets the quantity of special characters found.
-    /// </summary>
-    public int QuantitySpecialChars
-    {
-        get
-        {
-            return quantitySpecialChars;
-        }
-    }
+    public int QuantitySpecialChars => quantitySpecialChars;
 
-    /// <summary>
-    /// Gets the quantity of uppercase characters found.
-    /// </summary>
-    public int QuantityUpperChars
-    {
-        get
-        {
-            return quantityUpperChars;
-        }
-    }
+    public int QuantityUpperChars => quantityUpperChars;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ComplexInfoString"/> class by analyzing the given text.
-    /// </summary>
-    /// <param name="text">The text to analyze for character complexity.</param>
     public ComplexInfoString(string text)
     {
         foreach (char item in text)
@@ -119,13 +72,7 @@ public class ComplexInfoString
         }
     }
 
-    /// <summary>
-    /// Gets or sets the count of needed letters or digits before stopping analysis.
-    /// </summary>
     public int CountOfNeededLettersOrDigit { get; set; } = int.MaxValue;
 
-    /// <summary>
-    /// Gets or sets the number of letters or digits found so far.
-    /// </summary>
     public int NumberLettersOrDigit { get; set; } = 0;
 }

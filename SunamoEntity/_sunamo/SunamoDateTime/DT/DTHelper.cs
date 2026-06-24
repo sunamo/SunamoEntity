@@ -1,15 +1,7 @@
 namespace SunamoEntity._sunamo.SunamoDateTime.DT;
 
-/// <summary>
-/// DateTime formatting helper methods.
-/// </summary>
 internal class DTHelper
 {
-    /// <summary>
-    /// Converts a DateTime to a file name friendly string.
-    /// </summary>
-    /// <param name="dateTime">The DateTime to convert.</param>
-    /// <param name="isIncludingTime">Whether to include time in the output.</param>
     internal static string DateTimeToFileName(DateTime dateTime, bool isIncludingTime)
     {
         string dateDelimiter = "_";
@@ -23,22 +15,8 @@ internal class DTHelper
         return result;
     }
 
-    /// <summary>
-    /// Converts a DateTime to a date-only string in the specified language.
-    /// </summary>
-    /// <param name="dateTime">The DateTime to format.</param>
-    /// <param name="lang">The language for formatting.</param>
-    internal static string DateToString(DateTime dateTime, LangsShared lang)
-    {
-        return DTHelperMulti.DateToString(dateTime, lang);
-    }
+    internal static string DateToString(DateTime dateTime, LangsShared lang) => DTHelperMulti.DateToString(dateTime, lang);
 
-    /// <summary>
-    /// Converts a DateTime to a full date-time string in the specified language.
-    /// </summary>
-    /// <param name="dateTime">The DateTime to format.</param>
-    /// <param name="lang">The language for formatting.</param>
-    /// <param name="minDateTime">The minimum DateTime value to check against.</param>
     internal static string DateTimeToString(DateTime dateTime, LangsShared lang, DateTime minDateTime)
     {
         if (dateTime == minDateTime)

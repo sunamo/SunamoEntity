@@ -1,8 +1,5 @@
 namespace SunamoEntity._sunamo.SunamoFileSystem;
 
-/// <summary>
-/// File system helper utilities.
-/// </summary>
 internal class FS
 {
     internal static List<char> InvalidFileNameChars = Path.GetInvalidFileNameChars().ToList();
@@ -11,25 +8,13 @@ internal class FS
     internal static Action<string>? DeleteFileMaybeLocked;
 #pragma warning restore CS0649
 
-    /// <summary>
-    /// Removes invalid characters from a file name or path.
-    /// </summary>
-    /// <param name="filenameOrPath">The file name or path to clean.</param>
-    /// <param name="isPath">Whether the input is a path (true) or file name (false).</param>
     internal static string DeleteWrongCharsInFileName(string filenameOrPath, bool isPath)
     {
-        List<char> invalidChars;
+        var invalidChars = isPath
+            ? Path.GetInvalidPathChars().ToList()
+            : Path.GetInvalidFileNameChars().ToList();
 
-        if (isPath)
-        {
-            invalidChars = Path.GetInvalidPathChars().ToList();
-        }
-        else
-        {
-            invalidChars = Path.GetInvalidFileNameChars().ToList();
-        }
-
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         foreach (char item in filenameOrPath)
         {
             if (!invalidChars.Contains(item))
@@ -43,10 +28,6 @@ internal class FS
         return result;
     }
 
-    /// <summary>
-    /// Attempts to delete a file, returning false on failure.
-    /// </summary>
-    /// <param name="filePath">The file path to delete.</param>
     internal static bool TryDeleteFile(string filePath)
     {
         try

@@ -2,14 +2,6 @@ namespace SunamoEntity.Entity;
 
 public partial class SongFromInternet : IEquatable<SongFromInternet>
 {
-    /// <summary>
-    /// Calculates similarity score based on same/different word counts and two word lists.
-    /// Returns a value between 0 and 1 where 1 means identical.
-    /// </summary>
-    /// <param name="sameCount">The count of matching words.</param>
-    /// <param name="differentCount">The count of non-matching words (sum from both collections).</param>
-    /// <param name="newWords">The new word list to compare.</param>
-    /// <param name="originalWords">The original word list to compare against.</param>
     public static float CalculateSimilarity(int sameCount, int differentCount, List<string> newWords, List<string> originalWords)
     {
         if (sameCount == differentCount && sameCount == 0)
@@ -92,12 +84,6 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return 0f;
     }
 
-    /// <summary>
-    /// Calculates overall similarity considering alternate artists from featuring annotations.
-    /// </summary>
-    /// <param name="other">The other song to compare against.</param>
-    /// <param name="isWithoutDiacritic">Whether to compare without diacritics.</param>
-    /// <param name="minimal">The minimum similarity threshold to stop searching.</param>
     public float CalculateSimilarityAll(SongFromInternet other, bool isWithoutDiacritic, float minimal)
     {
         var result = CalculateSimilarity(other, isWithoutDiacritic);
@@ -142,62 +128,38 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return result;
     }
 
-    /// <summary>
-    /// Gets or sets whether to break in debugger during similarity calculation (for debugging purposes).
-    /// </summary>
     public static bool IsBreakInCalculateSimilarity { get; set; } = false;
 
-    /// <summary>
-    /// Returns the artist name as a space-joined string of artist words.
-    /// </summary>
     public string Artist()
     {
         return string.Join(" ", artistWords);
     }
 
-    /// <summary>
-    /// Returns the artist name formatted in convention (each word capitalized).
-    /// </summary>
     public string ArtistInConvention()
     {
         return ConvertEveryWordLargeCharConvention.ToConvention(Artist());
     }
 
-    /// <summary>
-    /// Returns the title as a space-joined string of title words.
-    /// </summary>
     public string Title()
     {
         return string.Join(" ", titleWords);
     }
 
-    /// <summary>
-    /// Returns the title formatted in convention (each word capitalized).
-    /// </summary>
     public string TitleInConvention()
     {
         return ConvertEveryWordLargeCharConvention.ToConvention(Title());
     }
 
-    /// <summary>
-    /// Returns the remix as a space-joined string of remix words.
-    /// </summary>
     public string Remix()
     {
         return string.Join(" ", remixWords);
     }
 
-    /// <summary>
-    /// Returns the remix formatted in convention (each word capitalized).
-    /// </summary>
     public string RemixInConvention()
     {
         return ConvertEveryWordLargeCharConvention.ToConvention(Remix());
     }
 
-    /// <summary>
-    /// Returns the title and remix formatted in convention, with remix in square brackets.
-    /// </summary>
     public string TitleAndRemixInConvention()
     {
         StringBuilder stringBuilder = new StringBuilder();
@@ -210,14 +172,6 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return stringBuilder.ToString();
     }
 
-    /// <summary>
-    /// Counts matching and non-matching words between two lists.
-    /// Matching words are removed from both working copies; the remaining counts are summed as different.
-    /// </summary>
-    /// <param name="firstList">The first word list to compare.</param>
-    /// <param name="secondList">The second word list to compare.</param>
-    /// <param name="sameCount">The count of words found in both lists.</param>
-    /// <param name="differentCount">The sum of remaining words in both lists after removing matches.</param>
     public static void CountSameAndDifferent(List<string> firstList, List<string> secondList, out int sameCount, out int differentCount)
     {
         List<string> firstCopy = new List<string>(firstList.ToArray());
@@ -237,9 +191,6 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         differentCount = firstCopy.Count + secondCopy.Count;
     }
 
-    /// <summary>
-    /// Returns a string representation of artist, title, and optionally remix.
-    /// </summary>
     public override string ToString()
     {
         StringBuilder stringBuilder = new StringBuilder();
@@ -252,9 +203,6 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return stringBuilder.ToString();
     }
 
-    /// <summary>
-    /// Returns a convention-formatted string of artist, title, and optionally remix.
-    /// </summary>
     public string ToConventionString()
     {
         StringBuilder stringBuilder = new StringBuilder();

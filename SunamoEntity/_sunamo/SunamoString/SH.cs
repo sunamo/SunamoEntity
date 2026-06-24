@@ -1,14 +1,7 @@
 namespace SunamoEntity._sunamo.SunamoString;
 
-/// <summary>
-/// String helper utility methods.
-/// </summary>
 internal class SH
 {
-    /// <summary>
-    /// Converts the first character of the string to uppercase (by ref).
-    /// </summary>
-    /// <param name="text">The string to modify.</param>
     internal static string FirstCharUpper(ref string text)
     {
         text = SH.FirstCharUpper(text);
@@ -16,11 +9,6 @@ internal class SH
         return text;
     }
 
-    /// <summary>
-    /// Converts the first character of the string to uppercase.
-    /// </summary>
-    /// <param name="text">The text to process.</param>
-    /// <param name="isOnlyFirstUpper">Whether to lowercase all other characters.</param>
     internal static string FirstCharUpper(string text, bool isOnlyFirstUpper = false)
     {
         if (text != null)
@@ -34,15 +22,9 @@ internal class SH
         return null!;
     }
 
-    /// <summary>
-    /// Checks which characters from the list are contained in the text.
-    /// </summary>
-    /// <param name="text">The text to search in.</param>
-    /// <param name="isCheckInCaseOnlyOneString">Whether to check when only one character exists.</param>
-    /// <param name="characters">The characters to look for.</param>
     internal static List<char> ContainsAnyChar(string text, bool isCheckInCaseOnlyOneString, IList<char> characters)
     {
-        List<char> found = new List<char>();
+        var found = new List<char>();
         if (characters.Count() == 1 && isCheckInCaseOnlyOneString)
         {
             text.Contains(characters.First());
@@ -61,13 +43,6 @@ internal class SH
         return found;
     }
 
-    /// <summary>
-    /// Checks whether the text contains any bracket characters.
-    /// </summary>
-    /// <param name="text">The text to check.</param>
-    /// <param name="leftBrackets">Output: found left brackets.</param>
-    /// <param name="rightBrackets">Output: found right brackets.</param>
-    /// <param name="isMustBeLeftAndRight">Whether both left and right brackets must be present.</param>
     internal static bool ContainsBracket(string text, ref List<char> leftBrackets, ref List<char> rightBrackets, bool isMustBeLeftAndRight = false)
     {
         leftBrackets = SH.ContainsAnyChar(text, false, AllLists.LeftBrackets);
@@ -98,10 +73,6 @@ internal class SH
     protected static List<char>? BracketsRightList;
 #pragma warning restore CS0649
 
-    /// <summary>
-    /// Returns the closing bracket for the given opening bracket.
-    /// </summary>
-    /// <param name="openingBracket">The opening bracket character.</param>
     internal static char ClosingBracketFor(char openingBracket)
     {
         foreach (var item in BracketsLeft!)
@@ -116,30 +87,15 @@ internal class SH
         return char.MaxValue;
     }
 
-    /// <summary>
-    /// Gets the text between two delimiter characters.
-    /// </summary>
-    /// <param name="text">The text to search in.</param>
-    /// <param name="afterChar">The opening delimiter character.</param>
-    /// <param name="beforeChar">The closing delimiter character.</param>
-    /// <param name="isThrowingExceptionIfNotContains">Whether to throw if delimiters are not found.</param>
-    /// <param name="notAllowedInRanges">Ranges where end delimiter should not be matched.</param>
-    /// <param name="isEndLastIndexOf">Whether to use LastIndexOf for the end delimiter.</param>
     internal static string GetTextBetween(string text, char afterChar, char beforeChar, bool isThrowingExceptionIfNotContains = true, object? notAllowedInRanges = null, bool isEndLastIndexOf = false)
     {
         return GetTextBetweenTwoChars(text, afterChar, beforeChar, isThrowingExceptionIfNotContains, notAllowedInRanges, isEndLastIndexOf);
     }
 
-    /// <summary>
-    /// Checks if the index is within a not-allowed range.
-    /// </summary>
-    /// <param name="rangeChecker">The range checker object.</param>
-    /// <param name="index">The index to check.</param>
     internal static bool NotAllowedInRanges(object rangeChecker, int index)
     {
-        if (rangeChecker is Func<int, bool>)
+        if (rangeChecker is Func<int, bool> predicate)
         {
-            var predicate = (Func<int, bool>)rangeChecker;
             return predicate(index);
         }
 
@@ -147,15 +103,6 @@ internal class SH
         return false;
     }
 
-    /// <summary>
-    /// Gets the text between two delimiter characters.
-    /// </summary>
-    /// <param name="text">The text to search in.</param>
-    /// <param name="beginChar">The opening delimiter.</param>
-    /// <param name="endChar">The closing delimiter.</param>
-    /// <param name="isThrowingExceptionIfNotContains">Whether to throw if delimiters are not found.</param>
-    /// <param name="notAllowedInRanges">Ranges where end delimiter should not be matched.</param>
-    /// <param name="isEndLastIndexOf">Whether to use LastIndexOf for the end delimiter.</param>
     internal static string GetTextBetweenTwoChars(string text, char beginChar, char endChar, bool isThrowingExceptionIfNotContains = true, object? notAllowedInRanges = null, bool isEndLastIndexOf = false)
     {
         int beginIndex = text.IndexOf(beginChar);
@@ -193,12 +140,6 @@ internal class SH
         return GetTextBetweenTwoCharsInts(text, beginIndex, endIndex);
     }
 
-    /// <summary>
-    /// Extracts a substring between two index positions.
-    /// </summary>
-    /// <param name="text">The source text.</param>
-    /// <param name="beginIndex">The start index (exclusive).</param>
-    /// <param name="endIndex">The end index (exclusive).</param>
     internal static string GetTextBetweenTwoCharsInts(string text, int beginIndex, int endIndex)
     {
         if (endIndex > beginIndex)
@@ -206,22 +147,7 @@ internal class SH
         return text;
     }
 
-    /// <summary>
-    /// Wraps a value with the specified wrapper string on both sides.
-    /// </summary>
-    /// <param name="text">The text to wrap.</param>
-    /// <param name="wrapper">The wrapper string.</param>
-    internal static string WrapWith(string text, string wrapper)
-    {
-        return wrapper + text + wrapper;
-    }
+    internal static string WrapWith(string text, string wrapper) => wrapper + text + wrapper;
 
-    /// <summary>
-    /// Removes diacritics from the text.
-    /// </summary>
-    /// <param name="text">The text to process.</param>
-    internal static string TextWithoutDiacritic(string text)
-    {
-        return text.RemoveDiacritics();
-    }
+    internal static string TextWithoutDiacritic(string text) => text.RemoveDiacritics();
 }

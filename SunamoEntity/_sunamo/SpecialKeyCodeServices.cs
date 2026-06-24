@@ -1,8 +1,5 @@
 namespace SunamoEntity._sunamo;
 
-/// <summary>
-/// Provides a list of key codes for special characters.
-/// </summary>
 internal class SpecialKeyCodeServices
 {
     internal readonly List<int> SpecialKeyCodes =

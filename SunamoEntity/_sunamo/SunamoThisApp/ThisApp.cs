@@ -9,7 +9,7 @@ internal class ThisApp
 
 
 
-    internal static void SetStatus(TypeOfMessageShared st, string status, params string[] args)
+    internal static void SetStatus(TypeOfMessageShared messageType, string status, params string[] args)
     {
         var format = /*string.Format*/ string.Format(status, args);
         if (format.Trim() != string.Empty)
@@ -21,7 +21,7 @@ internal class ThisApp
             }
             else
             {
-                StatusSetted(st, format);
+                StatusSetted(messageType, format);
             }
         }
     }

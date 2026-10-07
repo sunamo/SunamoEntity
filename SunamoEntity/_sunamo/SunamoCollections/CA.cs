@@ -7,11 +7,11 @@ internal class CA
         ThrowEx.IsNull("prefix", prefix);
         ThrowEx.IsNull("list", list);
 
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            if (list[i].StartsWith(prefix))
+            if (list[index].StartsWith(prefix))
             {
-                list[i] = list[i].Substring(prefix.Length);
+                list[index] = list[index].Substring(prefix.Length);
             }
         }
         return list;
@@ -19,7 +19,7 @@ internal class CA
 
     internal static List<string> Trim(List<string> list)
     {
-        for (var i = 0; i < list.Count; i++) list[i] = list[i].Trim();
+        for (var index = 0; index < list.Count; index++) list[index] = list[index].Trim();
 
         return list;
     }
@@ -36,20 +36,20 @@ internal class CA
 
     internal static List<string> WithoutDiacritic(List<string> list)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = list[i].RemoveDiacritics();
+            list[index] = list[index].RemoveDiacritics();
         }
         return list;
     }
 
     internal static List<string> RemoveStringsEmpty(List<string> list)
     {
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            if (list[i] == string.Empty)
+            if (list[index] == string.Empty)
             {
-                list.RemoveAt(i);
+                list.RemoveAt(index);
             }
         }
         return list;

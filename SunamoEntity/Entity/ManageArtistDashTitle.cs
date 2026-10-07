@@ -84,9 +84,9 @@ public class ManageArtistDashTitle
             }
 
             StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 1; i < parts.Count; i++)
+            for (int index = 1; index < parts.Count; index++)
             {
-                stringBuilder.Append(parts[i]);
+                stringBuilder.Append(parts[index]);
             }
 
             ExtractTitleRemix(stringBuilder.ToString().TrimEnd('-'), out song, out remix);
@@ -151,9 +151,9 @@ public class ManageArtistDashTitle
         {
             artist = parts[0];
             StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 1; i < parts.Count; i++)
+            for (int index = 1; index < parts.Count; index++)
             {
-                stringBuilder.Append(parts[i] + "-");
+                stringBuilder.Append(parts[index] + "-");
             }
 
             title = stringBuilder.ToString().TrimEnd('-');
@@ -166,34 +166,34 @@ public class ManageArtistDashTitle
         characters[0] = char.ToUpper(text[0]);
         int separatorIndex = text.IndexOf(separator);
         characters[separatorIndex + 1] = char.ToUpper(characters[separatorIndex + 1]);
-        for (int i = 1; i < characters.Length; i++)
+        for (int index = 1; index < characters.Length; index++)
         {
-            if (characters[i] == ' ')
+            if (characters[index] == ' ')
             {
-                if (CA.IsThereAnotherIndex(characters, i))
+                if (CA.IsThereAnotherIndex(characters, index))
                 {
-                    characters[i + 1] = char.ToUpper(characters[i + 1]);
+                    characters[index + 1] = char.ToUpper(characters[index + 1]);
                 }
             }
-            else if (characters[i] == '-')
+            else if (characters[index] == '-')
             {
-                if (CA.IsThereAnotherIndex(characters, i))
+                if (CA.IsThereAnotherIndex(characters, index))
                 {
-                    characters[i + 1] = char.ToUpper(characters[i + 1]);
+                    characters[index + 1] = char.ToUpper(characters[index + 1]);
                 }
             }
-            else if (characters[i] == ']')
+            else if (characters[index] == ']')
             {
-                if (CA.IsThereAnotherIndex(characters, i))
+                if (CA.IsThereAnotherIndex(characters, index))
                 {
-                    characters[i + 1] = char.ToUpper(characters[i + 1]);
+                    characters[index + 1] = char.ToUpper(characters[index + 1]);
                 }
             }
-            else if (characters[i] == '(')
+            else if (characters[index] == '(')
             {
-                if (CA.IsThereAnotherIndex(characters, i))
+                if (CA.IsThereAnotherIndex(characters, index))
                 {
-                    characters[i + 1] = char.ToUpper(characters[i + 1]);
+                    characters[index + 1] = char.ToUpper(characters[index + 1]);
                 }
             }
         }

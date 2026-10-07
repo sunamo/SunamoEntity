@@ -14,9 +14,9 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
             if (differentCount == 0)
             {
                 int matchCount = 0;
-                for (int i = 0; i < newWords.Count; i++)
+                for (int wordIndex = 0; wordIndex < newWords.Count; wordIndex++)
                 {
-                    if (originalWords.Contains(newWords[i]))
+                    if (originalWords.Contains(newWords[wordIndex]))
                     {
                         matchCount++;
                     }
@@ -51,9 +51,9 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
                 {
                     float similarity = (sameCount - sameCount / (sameCount - 1f)) / 2;
                     int matchCount = 0;
-                    for (int i = 0; i < newWords.Count; i++)
+                    for (int newWordIndex = 0; newWordIndex < newWords.Count; newWordIndex++)
                     {
-                        if (originalWords.Contains(newWords[i]))
+                        if (originalWords.Contains(newWords[newWordIndex]))
                         {
                             matchCount++;
                         }
@@ -177,12 +177,12 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         List<string> firstCopy = new List<string>(firstList.ToArray());
         List<string> secondCopy = new List<string>(secondList.ToArray());
         sameCount = 0;
-        for (int i = firstCopy.Count - 1; i >= 0; i--)
+        for (int index = firstCopy.Count - 1; index >= 0; index--)
         {
-            int foundIndex = secondCopy.IndexOf(firstCopy[i]);
+            int foundIndex = secondCopy.IndexOf(firstCopy[index]);
             if (foundIndex != -1)
             {
-                firstCopy.RemoveAt(i);
+                firstCopy.RemoveAt(index);
                 secondCopy.RemoveAt(foundIndex);
                 sameCount++;
             }
@@ -218,9 +218,9 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
     private IList<string> SplitRemix(string text)
     {
         List<string> words = SHSplit.Split(text, "&", " ", ",", "-", "[", "]", "(", ")");
-        for (int i = 0; i < words.Count; i++)
+        for (int index = 0; index < words.Count; index++)
         {
-            words[i] = words[i].ToLower();
+            words[index] = words[index].ToLower();
         }
 
         return words;
@@ -229,9 +229,9 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
     private IList<string> SplitArtistTitle(string text)
     {
         List<string> words = SHSplit.Split(text, "&", " ", ",", "-");
-        for (int i = 0; i < words.Count; i++)
+        for (int index = 0; index < words.Count; index++)
         {
-            words[i] = words[i].ToLower();
+            words[index] = words[index].ToLower();
         }
 
         return words;

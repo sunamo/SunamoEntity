@@ -5,8 +5,8 @@ namespace SunamoEntity._sunamo.SunamoExceptions;
 internal partial class ThrowEx
 {
 
-    internal static bool Custom(Exception ex, bool reallyThrow = true)
-    { return Custom(Exceptions.TextOfExceptions(ex), reallyThrow); }
+    internal static bool Custom(Exception exception, bool reallyThrow = true)
+    { return Custom(Exceptions.TextOfExceptions(exception), reallyThrow); }
 
     internal static bool Custom(string message, bool reallyThrow = true, string secondMessage = "")
     {

@@ -5,7 +5,7 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
     public List<string> AlternateArtists()
     {
         var remixText = Remix();
-        remixText = SHReplace.ReplaceAll(remixText, "Ft", "ft", Translate.FromKey(XlfKeys.Feat), "feat");
+        remixText = SHReplace.ReplaceAll(remixText, "Ft", "ft", "Feat", "feat");
         remixText = remixText.Trim('.');
         remixText = remixText.Trim();
         var artists = SHSplit.Split(remixText, "&", " and ");

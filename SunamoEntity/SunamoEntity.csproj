@@ -8,6 +8,7 @@
     <Description>y</Description>
     <Version>26.7.28.1</Version>
     <IsPackable>true</IsPackable>
+    <EnablePackageValidation>true</EnablePackageValidation>
     <DebugType>portable</DebugType>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <IncludeSymbols>true</IncludeSymbols>
@@ -22,6 +23,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageTags>sunamo;dotnet;entity</PackageTags>
   </PropertyGroup>
   <ItemGroup>
@@ -44,5 +46,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="readme.md" Pack="True" PackagePath="." />
+    <None Include="icon.png" Pack="True" PackagePath="." />
   </ItemGroup>
 </Project>

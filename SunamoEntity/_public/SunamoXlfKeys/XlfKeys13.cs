@@ -1,6 +1,5 @@
 namespace SunamoEntity._public.SunamoXlfKeys;
 
-// Variable names have been checked and replaced with self-descriptive names
 public partial class XlfKeys
 {
     public const string YourBrowserHasSentTheWrongSecurityCodeForPhotoID = "YourBrowserHasSentTheWrongSecurityCodeForPhotoID";

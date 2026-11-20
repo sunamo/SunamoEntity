@@ -1,7 +1,17 @@
 namespace SunamoEntity.Entity;
 
+/// <summary>
+/// Represents the manage artist dash title type.
+/// </summary>
 public class ManageArtistDashTitle
 {
+    /// <summary>
+    /// Get artist title remix.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <param name="artist">The artist.</param>
+    /// <param name="song">The song.</param>
+    /// <param name="remix">The remix.</param>
     public static void GetArtistTitleRemix(string text, out string artist, out string song, out string remix)
     {
         var result = GetArtistTitleRemix(text);
@@ -10,6 +20,14 @@ public class ManageArtistDashTitle
         remix = result.Item3;
     }
 
+    /// <summary>
+    /// Contains bracket.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <param name="left">The left.</param>
+    /// <param name="right">The right.</param>
+    /// <param name="isMustBeLeftAndRight">The is must be left and right.</param>
+    /// <returns>The contains bracket result.</returns>
     public static bool ContainsBracket(string text, ref List<char> left, ref List<char> right, bool isMustBeLeftAndRight = false)
     {
         left = SH.ContainsAnyChar(text, false, AllLists.LeftBrackets);
@@ -32,6 +50,11 @@ public class ManageArtistDashTitle
         return false;
     }
 
+    /// <summary>
+    /// Get artist title remix.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The get artist title remix result.</returns>
     public static Tuple<string, string, string> GetArtistTitleRemix(string text)
     {
         string artist; string song; string remix;
@@ -127,12 +150,23 @@ public class ManageArtistDashTitle
         remix = text.Substring(splitIndex);
     }
 
+    /// <summary>
+    /// Get artist.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The get artist result.</returns>
     public static string GetArtist(string text)
     {
         GetArtistTitle(text, out var artist, out _);
         return artist;
     }
 
+    /// <summary>
+    /// Get artist title.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <param name="artist">The artist.</param>
+    /// <param name="title">The title.</param>
     public static void GetArtistTitle(string text, out string artist, out string title)
     {
         var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(text);
@@ -160,6 +194,12 @@ public class ManageArtistDashTitle
         }
     }
 
+    /// <summary>
+    /// Artist and title to upper.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <param name="separator">The separator.</param>
+    /// <returns>The artist and title to upper result.</returns>
     public static string ArtistAndTitleToUpper(string text, string separator)
     {
         char[] characters = text.ToCharArray();
@@ -203,6 +243,12 @@ public class ManageArtistDashTitle
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Replace all hyphens except the first.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <param name="replacement">The replacement.</param>
+    /// <returns>The replace all hyphens except the first result.</returns>
     public static string ReplaceAllHyphensExceptTheFirst(string text, string replacement = " ")
     {
         int firstHyphenIndex = text.IndexOf('-');
@@ -212,12 +258,22 @@ public class ManageArtistDashTitle
         return new string(characters);
     }
 
+    /// <summary>
+    /// Get title.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The get title result.</returns>
     public string GetTitle(string text)
     {
         GetArtistTitle(text, out _, out var title);
         return title;
     }
 
+    /// <summary>
+    /// Reverse.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The reverse result.</returns>
     public static string Reverse(string text)
     {
         List<string> parts = SHSplit.SplitChar(text, '-');

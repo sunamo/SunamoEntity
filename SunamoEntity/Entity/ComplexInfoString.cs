@@ -1,5 +1,8 @@
 namespace SunamoEntity.Entity;
 
+/// <summary>
+/// Represents the complex info string type.
+/// </summary>
 public class ComplexInfoString
 {
     private int quantityNumbers = 0;
@@ -8,6 +11,9 @@ public class ComplexInfoString
     private int quantitySpecialChars = 0;
     private Dictionary<char, int> characterCounts = new Dictionary<char, int>();
 
+    /// <summary>
+    /// The this char.
+    /// </summary>
     public int this[char character]
     {
         get
@@ -20,14 +26,30 @@ public class ComplexInfoString
         }
     }
 
+    /// <summary>
+    /// Gets the quantity numbers.
+    /// </summary>
     public int QuantityNumbers => quantityNumbers;
 
+    /// <summary>
+    /// Gets the quantity lower chars.
+    /// </summary>
     public int QuantityLowerChars => quantityLowerChars;
 
+    /// <summary>
+    /// Gets the quantity special chars.
+    /// </summary>
     public int QuantitySpecialChars => quantitySpecialChars;
 
+    /// <summary>
+    /// Gets the quantity upper chars.
+    /// </summary>
     public int QuantityUpperChars => quantityUpperChars;
 
+    /// <summary>
+    /// Initializes a new instance of the complex info string class.
+    /// </summary>
+    /// <param name="text">The text.</param>
     public ComplexInfoString(string text)
     {
         foreach (char item in text)
@@ -72,7 +94,13 @@ public class ComplexInfoString
         }
     }
 
+    /// <summary>
+    /// Gets or sets the count of needed letters or digit.
+    /// </summary>
     public int CountOfNeededLettersOrDigit { get; set; } = int.MaxValue;
 
+    /// <summary>
+    /// Gets or sets the number letters or digit.
+    /// </summary>
     public int NumberLettersOrDigit { get; set; } = 0;
 }

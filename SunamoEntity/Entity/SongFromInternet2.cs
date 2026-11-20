@@ -2,6 +2,10 @@ namespace SunamoEntity.Entity;
 
 public partial class SongFromInternet : IEquatable<SongFromInternet>
 {
+    /// <summary>
+    /// Alternate artists.
+    /// </summary>
+    /// <returns>The alternate artists result.</returns>
     public List<string> AlternateArtists()
     {
         var remixText = Remix();
@@ -12,6 +16,12 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return artists;
     }
 
+    /// <summary>
+    /// Compare.
+    /// </summary>
+    /// <param name="first">The first.</param>
+    /// <param name="second">The second.</param>
+    /// <returns>The compare result.</returns>
     public int Compare(object first, object second)
     {
         var firstSong = (SongFromInternet)first;
@@ -26,11 +36,21 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return 0;
     }
 
+    /// <summary>
+    /// Equals.
+    /// </summary>
+    /// <param name="obj">The obj.</param>
+    /// <returns>The equals result.</returns>
     public override bool Equals(object? obj)
     {
         return Equals((SongFromInternet)obj!);
     }
 
+    /// <summary>
+    /// Equals.
+    /// </summary>
+    /// <param name="other">The other.</param>
+    /// <returns>The equals result.</returns>
     public bool Equals(SongFromInternet? other)
     {
         return BTS.IntToBool(Compare(this, other!));
@@ -38,6 +58,10 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
 
     private readonly StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
+    /// <summary>
+    /// Get hash code.
+    /// </summary>
+    /// <returns>The get hash code result.</returns>
     public override int GetHashCode()
     {
         return ToString().GetHashCode();

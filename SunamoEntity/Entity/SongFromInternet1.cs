@@ -2,6 +2,14 @@ namespace SunamoEntity.Entity;
 
 public partial class SongFromInternet : IEquatable<SongFromInternet>
 {
+    /// <summary>
+    /// Calculate similarity.
+    /// </summary>
+    /// <param name="sameCount">The same count.</param>
+    /// <param name="differentCount">The different count.</param>
+    /// <param name="newWords">The new words.</param>
+    /// <param name="originalWords">The original words.</param>
+    /// <returns>The calculate similarity result.</returns>
     public static float CalculateSimilarity(int sameCount, int differentCount, List<string> newWords, List<string> originalWords)
     {
         if (sameCount == differentCount && sameCount == 0)
@@ -84,6 +92,13 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return 0f;
     }
 
+    /// <summary>
+    /// Calculate similarity all.
+    /// </summary>
+    /// <param name="other">The other.</param>
+    /// <param name="isWithoutDiacritic">The is without diacritic.</param>
+    /// <param name="minimal">The minimal.</param>
+    /// <returns>The calculate similarity all result.</returns>
     public float CalculateSimilarityAll(SongFromInternet other, bool isWithoutDiacritic, float minimal)
     {
         var result = CalculateSimilarity(other, isWithoutDiacritic);
@@ -128,38 +143,78 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return result;
     }
 
+    /// <summary>
+    /// Gets or sets the is break in calculate similarity.
+    /// </summary>
     public static bool IsBreakInCalculateSimilarity { get; set; } = false;
 
+    /// <summary>
+    /// Artist.
+    /// </summary>
+    /// <returns>The artist result.</returns>
     public string Artist()
     {
         return string.Join(" ", artistWords);
     }
 
+    /// <summary>
+    /// Artist in convention.
+    /// </summary>
+    /// <param name=""">The ".</param>
+    /// <param name="artistWords">The artist words.</param>
+    /// <returns>The artist in convention result.</returns>
     public string ArtistInConvention()
     {
         return ConvertEveryWordLargeCharConvention.ToConvention(Artist());
     }
 
+    /// <summary>
+    /// Title.
+    /// </summary>
+    /// <param name="Artist()">The artist.</param>
+    /// <returns>The title result.</returns>
     public string Title()
     {
         return string.Join(" ", titleWords);
     }
 
+    /// <summary>
+    /// Title in convention.
+    /// </summary>
+    /// <param name=""">The ".</param>
+    /// <param name="titleWords">The title words.</param>
+    /// <returns>The title in convention result.</returns>
     public string TitleInConvention()
     {
         return ConvertEveryWordLargeCharConvention.ToConvention(Title());
     }
 
+    /// <summary>
+    /// Remix.
+    /// </summary>
+    /// <param name="Title()">The title.</param>
+    /// <returns>The remix result.</returns>
     public string Remix()
     {
         return string.Join(" ", remixWords);
     }
 
+    /// <summary>
+    /// Remix in convention.
+    /// </summary>
+    /// <param name=""">The ".</param>
+    /// <param name="remixWords">The remix words.</param>
+    /// <returns>The remix in convention result.</returns>
     public string RemixInConvention()
     {
         return ConvertEveryWordLargeCharConvention.ToConvention(Remix());
     }
 
+    /// <summary>
+    /// Title and remix in convention.
+    /// </summary>
+    /// <param name="Remix()">The remix.</param>
+    /// <returns>The title and remix in convention result.</returns>
     public string TitleAndRemixInConvention()
     {
         StringBuilder stringBuilder = new StringBuilder();
@@ -172,6 +227,10 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Count same and different.
+    /// </summary>
+    /// <returns>The count same and different result.</returns>
     public static void CountSameAndDifferent(List<string> firstList, List<string> secondList, out int sameCount, out int differentCount)
     {
         List<string> firstCopy = new List<string>(firstList.ToArray());
@@ -191,6 +250,10 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         differentCount = firstCopy.Count + secondCopy.Count;
     }
 
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <returns>The to string result.</returns>
     public override string ToString()
     {
         StringBuilder stringBuilder = new StringBuilder();
@@ -203,6 +266,10 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// To convention string.
+    /// </summary>
+    /// <returns>The to convention string result.</returns>
     public string ToConventionString()
     {
         StringBuilder stringBuilder = new StringBuilder();

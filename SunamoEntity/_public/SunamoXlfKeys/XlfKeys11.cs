@@ -46,7 +46,7 @@ public partial class XlfKeys
     public const string DidnTFindYourFavoriteVideoOrTextOnThisSite = "DidnTFindYourFavoriteVideoOrTextOnThisSite";
     public const string DeleteYTVideos = "DeleteYTVideos";
     public const string DeleteSongLyrics = "DeleteSongLyrics";
-    public const string SmazatYTVidea = "SmazatYTVidea";
+    public const string DeleteYTVideosCs = "SmazatYTVidea";
     public const string AddIt = "AddIt";
     public const string Dart = "Dart";
     public const string Shortener = "Shortener";

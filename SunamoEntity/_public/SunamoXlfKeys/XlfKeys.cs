@@ -116,7 +116,7 @@ public partial class XlfKeys
     public const string KeepRight = "KeepRight";
     public const string WhatDoYouWantProceed = "WhatDoYouWantProceed";
     public const string MicrosoftSansSerif = "MicrosoftSansSerif";
-    public const string MusiteZiskatAccessToken = "MusiteZiskatAccessToken";
+    public const string MustObtainAccessToken = "MusiteZiskatAccessToken";
     public const string PasteGivenAccessToken = "PasteGivenAccessToken";
     public const string SelectBrowserToOpenOAuth = "SelectBrowserToOpenOAuth";
     public const string MinimumAndMaximumValuesAreNotSupported = "MinimumAndMaximumValuesAreNotSupported";

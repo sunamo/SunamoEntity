@@ -40,7 +40,7 @@ public partial class XlfKeys
     public const string SuspendedWithoutLogin = "SuspendedWithoutLogin";
     public const string Webmaster = "Webmaster";
     public const string IllegalSortValuesApparentlyPublicApplicationError = "IllegalSortValuesApparentlyPublicApplicationError";
-    public const string DoMetodyLoginedUserIDSeNedostalAniParametrHttpContextAniSunamoPage = "DoMetodyLoginedUserIDSeNedostalAniParametrHttpContextAniSunamoPage";
+    public const string LoginedUserIdMethodGotNeitherHttpContextNorSunamoPageParameter = "DoMetodyLoginedUserIDSeNedostalAniParametrHttpContextAniSunamoPage";
     public const string TheSessionIDFoundInTheDBDoesNotMatchYourSessionIDLogOutAndLogIn = "TheSessionIDFoundInTheDBDoesNotMatchYourSessionIDLogOutAndLogIn";
     public const string YouHaveNoMoreSignInAttemptsPleaseTryAgainInAnHour = "YouHaveNoMoreSignInAttemptsPleaseTryAgainInAnHour";
     public const string AllYouHaveToDo = "AllYouHaveToDo";

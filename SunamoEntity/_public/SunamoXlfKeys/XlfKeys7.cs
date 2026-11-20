@@ -18,9 +18,9 @@ public partial class XlfKeys
     public const string iconPlusIconCategory = "iconPlusIconCategory";
     public const string herOwner = "herOwner";
     public const string veterinarians = "veterinarians";
-    public const string buttonOranzovyObtah = "buttonOranzovyObtah";
+    public const string buttonOrangeOutline = "buttonOranzovyObtah";
     public const string buttonTooltip = "buttonTooltip";
-    public const string buttonOranzovyObtahTooltip = "buttonOranzovyObtahTooltip";
+    public const string buttonOrangeOutlineTooltip = "buttonOranzovyObtahTooltip";
     public const string btnAddCommentButton = "btnAddCommentButton";
     public const string inputControlCheckboxSmallCheck = "inputControlCheckboxSmallCheck";
     public const string balloonRightBalloonComment = "balloonRightBalloonComment";

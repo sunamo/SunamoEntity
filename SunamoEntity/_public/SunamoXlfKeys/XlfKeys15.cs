@@ -14,7 +14,7 @@ public partial class XlfKeys
     public const string errorThisPageGatewayWithoutQsCouldNotBeFound = "errorThisPageGatewayWithoutQsCouldNotBeFound";
     public const string errorTable = "errorTable";
     public const string ChangeOfEmail = "ChangeOfEmail";
-    public const string DartProgramy = "DartProgramy";
+    public const string DartPrograms = "DartProgramy";
     public const string TheLoginSystemIsDown = "TheLoginSystemIsDown";
     public const string PasswordReset = "PasswordReset";
     public const string ActivateUserAccount = "ActivateUserAccount";

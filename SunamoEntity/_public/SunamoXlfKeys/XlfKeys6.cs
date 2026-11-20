@@ -137,7 +137,7 @@ public partial class XlfKeys
     public const string NumberOfFoundCaches = "NumberOfFoundCaches";
     public const string ShowingMaximumGeocache = "ShowingMaximumGeocache";
     public const string SearchForCachesContaining = "SearchForCachesContaining";
-    public const string ExportSeznamu = "ExportSeznamu";
+    public const string ExportList = "ExportSeznamu";
     public const string GenerateGPXFile = "GenerateGPXFile";
     public const string UChecked = "UChecked";
     public const string DeselectEverything = "DeselectEverything";
@@ -153,7 +153,7 @@ public partial class XlfKeys
     public const string DateOfRegistration = "DateOfRegistration";
     public const string Impose = "Impose";
     public const string ViewMyLog = "ViewMyLog";
-    public const string MetaInformace = "MetaInformace";
+    public const string MetaInformationCs = "MetaInformace";
     public const string GenerateCodeForEachRoute = "GenerateCodeForEachRoute";
     public const string GenerateCodeForRouteGallery = "GenerateCodeForRouteGallery";
     public const string CreateMyPublicGalleryOfGpxRoutes = "CreateMyPublicGalleryOfGpxRoutes";

@@ -113,7 +113,7 @@ public partial class XlfKeys
     public const string YouAreLoggedInButBeforeCreatingAVetYouMustFirstRegisterYourMasterProfile = "YouAreLoggedInButBeforeCreatingAVetYouMustFirstRegisterYourMasterProfile";
     public const string VeterinarianCityMustBeEntered = "VeterinarianCityMustBeEntered";
     public const string TheNameOfTheVeterinarianMustBeEntered = "TheNameOfTheVeterinarianMustBeEntered";
-    public const string RegistraceVeteriny = "RegistraceVeteriny";
+    public const string VeterinaryRegistration = "RegistraceVeteriny";
     public const string RegisterTheVet = "RegisterTheVet";
     public const string AVetIDWasEnteredThatWasNotFoundInTheDB = "AVetIDWasEnteredThatWasNotFoundInTheDB";
     public const string YouReTryingToEditAVetThatYouDidnTActuallyCreate = "YouReTryingToEditAVetThatYouDidnTActuallyCreate";

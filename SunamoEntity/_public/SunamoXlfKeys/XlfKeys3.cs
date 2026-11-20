@@ -25,7 +25,7 @@ public partial class XlfKeys
     public const string NumberOfDoors = "NumberOfDoors";
     public const string Body = "Body";
     public const string NumberOfAirbags = "NumberOfAirbags";
-    public const string SpecifikaceVozu = "SpecifikaceVozu";
+    public const string VehicleSpecification = "SpecifikaceVozu";
     public const string CountryOfOrigin = "CountryOfOrigin";
     public const string ServiceBook = "ServiceBook";
     public const string TheFirstOwner = "TheFirstOwner";
@@ -37,7 +37,7 @@ public partial class XlfKeys
     public const string Transmission = "Transmission";
     public const string Volume = "Volume";
     public const string Fuel = "Fuel";
-    public const string Tachometr = "Tachometr";
+    public const string Speedometer = "Tachometr";
     public const string RuntimeTrouble = "RuntimeTrouble";
     public const string AppCanTRunUnderAdminAccountDueToWebBrowserComponentAppWillBeShutdownNow = "AppCanTRunUnderAdminAccountDueToWebBrowserComponentAppWillBeShutdownNow";
     public const string UsedCarComparing = "UsedCarComparing";
@@ -94,7 +94,7 @@ public partial class XlfKeys
     public const string PriceIsWithAllTaxes = "PriceIsWithAllTaxes";
     public const string License = "License";
     public const string TheRecommendedVersionHasNotBeenUploadedYet = "TheRecommendedVersionHasNotBeenUploadedYet";
-    public const string DoporučenáVerzeNebylaDosudNauploadována = "DoporučenáVerzeNebylaDosudNauploadována";
+    public const string RecommendedVersionNotYetUploaded = "DoporučenáVerzeNebylaDosudNauploadována";
     public const string UsefulApps = "UsefulApps";
     public const string forYourNeeds = "forYourNeeds";
     public const string _thCenturyStyleOfFrenchAccordionBasedDanceMusic = "_thCenturyStyleOfFrenchAccordionBasedDanceMusic";

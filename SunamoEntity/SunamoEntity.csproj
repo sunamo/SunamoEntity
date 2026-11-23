@@ -6,7 +6,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://sunamo.github.io/PlatformIndependentNuGetPackages/SunamoEntity/</PackageProjectUrl>
     <Description>y</Description>
-    <Version>26.7.28.1</Version>
+    <Version>26.11.23.1</Version>
     <IsPackable>true</IsPackable>
     <EnablePackageValidation>true</EnablePackageValidation>
     <DebugType>portable</DebugType>

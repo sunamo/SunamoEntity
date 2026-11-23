@@ -1,5 +1,8 @@
 namespace SunamoEntity.Entity;
 
+/// <summary>
+/// Represents the song from internet type.
+/// </summary>
 public partial class SongFromInternet : IEquatable<SongFromInternet>
 {
     private List<string> artistWords = new List<string>();
@@ -9,32 +12,51 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
     private List<string> titleWordsWithoutDiacritic = new List<string>();
     private List<string> remixWordsWithoutDiacritic = new List<string>();
 
+    /// <summary>
+    /// Gets or sets the yt code.
+    /// </summary>
     public string? YtCode { get; set; } = null;
 
+    /// <summary>
+    /// Gets or sets the id in db.
+    /// </summary>
     public int IdInDb { get; set; } = int.MaxValue;
 
     private string? artistConvention = null;
     private string? titleConvention = null;
     private string? remixConvention = null;
 
+    /// <summary>
+    /// The artist c.
+    /// </summary>
     public string ArtistC
     {
         get => artistConvention!;
         set => artistConvention = value;
     }
 
+    /// <summary>
+    /// The title c.
+    /// </summary>
     public string TitleC
     {
         get => titleConvention!;
         set => titleConvention = value;
     }
 
+    /// <summary>
+    /// The remix c.
+    /// </summary>
     public string RemixC
     {
         get => remixConvention!;
         set => remixConvention = value;
     }
 
+    /// <summary>
+    /// Set artist.
+    /// </summary>
+    /// <param name="text">The text.</param>
     public void SetArtist(string text)
     {
         artistWords.Clear();
@@ -44,10 +66,20 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         artistConvention = ArtistInConvention();
     }
 
+    /// <summary>
+    /// Song from internet.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The song from internet result.</returns>
     public SongFromInternet()
     {
     }
 
+    /// <summary>
+    /// Song from internet.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The song from internet result.</returns>
     public SongFromInternet(string song, string? ytCode = null)
     {
         ManageArtistDashTitle.GetArtistTitleRemix(song, out var artist, out var title, out var remix);
@@ -55,6 +87,11 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         YtCode = ytCode;
     }
 
+    /// <summary>
+    /// Song from internet.
+    /// </summary>
+    /// <param name="artistWords">The artist words.</param>
+    /// <returns>The song from internet result.</returns>
     public SongFromInternet(SongFromInternet other)
     {
         artistWords = new List<string>(other.artistWords);
@@ -63,11 +100,21 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         SetInConvention();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the init class.
+    /// </summary>
+    /// <param name="song">The song.</param>
+    /// <param name="ytCode">The yt code.</param>
     public SongFromInternet Init(Tuple<string, string, string> tuple)
     {
         return Init(tuple.Item1, tuple.Item2, tuple.Item3);
     }
 
+    /// <summary>
+    /// Init.
+    /// </summary>
+    /// <param name="other">The other.</param>
+    /// <returns>The init result.</returns>
     public SongFromInternet Init(string artist, string title, string remix)
     {
         SetArtist(artist);
@@ -81,11 +128,23 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return this;
     }
 
+    /// <summary>
+    /// Is similar.
+    /// </summary>
+    /// <param name="artist">The artist.</param>
+    /// <param name="title">The title.</param>
+    /// <param name="remix">The remix.</param>
+    /// <returns>The is similar result.</returns>
     public static bool IsSimilar(string[] titleArray, string name)
     {
         return IsSimilar(new List<string>(titleArray), name);
     }
 
+    /// <summary>
+    /// Is similar.
+    /// </summary>
+    /// <param name="title">The title.</param>
+    /// <returns>The is similar result.</returns>
     public static bool IsSimilar(List<string> titleArray, string name)
     {
         var nameArray = SHSplit.Split(name, " ", ",", "-", "&", ".", ";", "(", ")", "[", "]");
@@ -105,6 +164,10 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         remixConvention = RemixInConvention();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the remix only content class.
+    /// </summary>
+    /// <param name="0.49f">The 0 49 f.</param>
     public string RemixOnlyContent()
     {
         var result = Remix();
@@ -113,12 +176,20 @@ public partial class SongFromInternet : IEquatable<SongFromInternet>
         return result;
     }
 
+    /// <summary>
+    /// Calculate similarity.
+    /// </summary>
+    /// <returns>The calculate similarity result.</returns>
     public float CalculateSimilarity(string text)
     {
         SongFromInternet other = new SongFromInternet(text);
         return CalculateSimilarity(other, false);
     }
 
+    /// <summary>
+    /// Calculate similarity.
+    /// </summary>
+    /// <returns>The calculate similarity result.</returns>
     public float CalculateSimilarity(SongFromInternet other, bool isWithoutDiacritic)
     {
         float artistSimilarity, titleSimilarity, remixSimilarity;
